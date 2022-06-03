@@ -47,6 +47,6 @@ jobs:
         run: >
           aws cloudformation create-stack 
           --stack-name myteststack 
-          --template-body ec2.yaml 
+          --template-body file:///$(pwd)/s3.yaml
     
 
