@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    # runs-on: self-hosted
+    runs-on: self-hosted
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -35,11 +35,16 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
   test_aws:
-    # runs-on: imank-personal-mac
+    runs-on: imank-personal-mac
     steps:
       - name: test AWS version
         run: |
+          aws configure list
+  list_aws_cloudformation:
+    runs-on: imank-personal-mac
+    steps:
+      - name: list_aws_cloudformation
+        run: |
           aws --version
-  runs-on: imank-personal-mac
     
 
