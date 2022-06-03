@@ -34,3 +34,11 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+  test_aws:
+    runs-on: imank-personal-mac
+    steps:
+      - name: test AWS version
+        run: |
+          aws --version
+    
+
