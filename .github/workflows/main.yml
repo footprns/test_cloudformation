@@ -44,10 +44,10 @@ jobs:
     runs-on: imank-personal-mac
     steps:
       - name: create_aws_s3
-        run: |
-          aws cloudformation create-stack \
-          --stack-name myteststack \
-          --template-body s3.yaml \
+        run: >
+          aws cloudformation create-stack 
+          --stack-name myteststack 
+          --template-body s3.yaml 
           --parameters ParameterKey=Parm1,ParameterValue=test1 ParameterKey=Parm2,ParameterValue=test2
     
 
