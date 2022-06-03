@@ -48,6 +48,5 @@ jobs:
           aws cloudformation create-stack 
           --stack-name myteststack 
           --template-body s3.yaml 
-          --parameters ParameterKey=Parm1,ParameterValue=test1 ParameterKey=Parm2,ParameterValue=test2
     
 
