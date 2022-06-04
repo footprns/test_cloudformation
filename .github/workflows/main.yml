@@ -45,8 +45,8 @@ jobs:
     steps:
       - name: create_vpc_simple
         run: >
-          aws cloudformation update-stack 
-          --stack-name create-vpc-simple
+          aws cloudformation create-stack 
+          --stack-name vpc-dev-exchange
           --template-body file:///$(pwd)/vpc_ha.yaml 
           --parameters ParameterKey=EnvironmentName,ParameterValue=dev 
           ParameterKey=VpcCIDR,ParameterValue="10.0.0.0/22" 
