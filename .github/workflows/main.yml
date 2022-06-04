@@ -43,10 +43,10 @@ jobs:
   create_aws_cloudformation:
     runs-on: imank-personal-mac
     steps:
-      - name: create_aws_s3
+      - name: create_vpc_ha
         run: >
           aws cloudformation create-stack 
           --stack-name myteststack 
-          --template-body file:///$(pwd)/vpc_ha.yaml
+          --template-body file:///$(pwd)/vpc_ha.yaml --parameters ParameterKey=EnvironmentName,ParameterValue=pt
     
 
