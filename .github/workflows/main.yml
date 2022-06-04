@@ -46,7 +46,7 @@ jobs:
       - name: create_vpc_simple
         run: >
           aws cloudformation create-stack 
-          --stack-name create_vpc_simple
+          --stack-name create-vpc-simple
           --template-body file:///$(pwd)/vpc_ha.yaml --parameters ParameterKey=EnvironmentName,ParameterValue=dev
     
 
