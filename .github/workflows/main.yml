@@ -48,6 +48,9 @@ jobs:
           aws cloudformation update-stack 
           --stack-name create-vpc-simple
           --template-body file:///$(pwd)/vpc_ha.yaml 
-          --parameters ParameterKey=EnvironmentName,ParameterValue=dev,ParameterKey=VpcCIDR,ParameterValue="10.0.0.0/22",ParameterKey=PublicSubnet1CIDR,ParameterValue="10.0.2.0/24",ParameterKey=PrivateSubnet1CIDR,ParameterValue="10.0.0.0/23"
+          --parameters ParameterKey=EnvironmentName,ParameterValue=dev 
+          ParameterKey=VpcCIDR,ParameterValue="10.0.0.0/22" 
+          ParameterKey=PublicSubnet1CIDR,ParameterValue="10.0.2.0/24" 
+          ParameterKey=PrivateSubnet1CIDR,ParameterValue="10.0.0.0/23"
     
 
