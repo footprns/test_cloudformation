@@ -10,3 +10,10 @@ Resources:
           Type: ipsec.1
           BgpAsn: 65534
           IpAddress: !Ref MyEIP
+  myVPNGateway: 
+   Type: AWS::EC2::VPNGateway
+   Properties: 
+      Type: ipsec.1
+      Tags: 
+      - Key: Use
+        Value: Test
