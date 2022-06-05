@@ -16,6 +16,14 @@ Resources:
               AWS: 'arn:aws:iam::296316970460:root'
             Action: 'kms:*'
             Resource: '*'
+      Tags: 
+      - Key: env
+        Value: dev
+  myAlias:
+    Type: 'AWS::KMS::Alias'
+    Properties:
+      AliasName: KMSSecretManager
+      TargetKeyId: !Ref myKey
 
   # KMS:
   #   Type: AWS::KMS::Key
