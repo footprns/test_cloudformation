@@ -1,0 +1,24 @@
+Description: This template deploys a KMS for secret manager
+Resources:
+  KMS:
+    Type: AWS::KMS::Key
+    Properties: 
+      Description: KMS for Secret Manager
+      Enabled: true
+      EnableKeyRotation: true
+      KeyPolicy: > 
+        {
+          "Sid": "Enable IAM policies",
+          "Effect": "Allow",
+          "Principal": {
+            "AWS": "arn:aws:iam::296316970460:root"
+          },
+          "Action": "kms:*",
+          "Resource": "*"
+        }
+      KeySpec: SYMMETRIC_DEFAULT # (AES-256-GCM)
+      KeyUsage: ENCRYPT_DECRYPT
+      MultiRegion: false
+      PendingWindowInDays: 30
+      Tags: 
+        - Dev secret manager
