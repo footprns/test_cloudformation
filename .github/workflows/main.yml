@@ -54,7 +54,7 @@ jobs:
       #     ParameterKey=PrivateSubnet1CIDR,ParameterValue="10.0.0.0/23"
       - name: create_vpn
         run: >
-          aws cloudformation create-stack 
+          aws cloudformation update-stack 
           --stack-name vpn-dev-exchange
           --template-body file:///$(pwd)/vpn.yaml 
   # create_aws_kms:

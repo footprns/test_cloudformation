@@ -4,3 +4,9 @@ Resources:
     Type: AWS::EC2::EIP
     # Properties:
     #   InstanceId: !Ref Logical name of an AWS::EC2::Instance resource
+  myCustomerGateway: 
+      Type: AWS::EC2::CustomerGateway
+      Properties: 
+          Type: ipsec.1
+          BgpAsn: 65534
+          IpAddress: !Ref MyEIP
