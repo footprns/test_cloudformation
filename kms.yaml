@@ -18,7 +18,7 @@ Resources:
         }
       KeySpec: SYMMETRIC_DEFAULT # (AES-256-GCM)
       KeyUsage: ENCRYPT_DECRYPT
-      MultiRegion: false
+      # MultiRegion: false
       PendingWindowInDays: 30
       Tags: 
         - Dev secret manager
