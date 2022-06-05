@@ -22,8 +22,24 @@ Resources:
   myAlias:
     Type: 'AWS::KMS::Alias'
     Properties:
-      AliasName: KMSSecretManager
+      AliasName: alias/KMSSecretManager
       TargetKeyId: !Ref myKey
+  #This is a Secret resource with a randomly generated password in its SecretString JSON.
+  MySecretA:
+    Type: 'AWS::SecretsManager::Secret'
+    Properties:
+      Name: MySecretForAppA
+      Description: "This secret has a dynamically generated secret password."
+      KmsKeyId: !Ref myKey
+      GenerateSecretString:
+        SecretStringTemplate: '{"username": "test-user"}'
+        GenerateStringKey: "password"
+        PasswordLength: 30
+        ExcludeCharacters: '"@/\'
+      Tags:
+        -
+          Key: AppName
+          Value: AppA
 
   # KMS:
   #   Type: AWS::KMS::Key

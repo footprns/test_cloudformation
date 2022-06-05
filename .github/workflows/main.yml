@@ -52,12 +52,12 @@ jobs:
           ParameterKey=VpcCIDR,ParameterValue="10.0.0.0/22" 
           ParameterKey=PublicSubnet1CIDR,ParameterValue="10.0.2.0/24" 
           ParameterKey=PrivateSubnet1CIDR,ParameterValue="10.0.0.0/23"
-  create_aws_kms:
-    runs-on: imank-personal-mac
-    steps:
-      - name: create_kms
-        run: >
-          aws cloudformation create-stack 
-          --stack-name vpc-dev-kms
-          --template-body file:///$(pwd)/kms.yaml 
+  # create_aws_kms:
+  #   runs-on: imank-personal-mac
+  #   steps:
+  #     - name: create_kms
+  #       run: >
+  #         aws cloudformation create-stack 
+  #         --stack-name vpc-dev-kms
+  #         --template-body file:///$(pwd)/kms.yaml 
 
