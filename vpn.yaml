@@ -1,19 +1,53 @@
 Description:  This template deploys a client VPN
 Resources:
-  MyEIP:
-    Type: AWS::EC2::EIP
+  # MyEIP:
+  #   Type: AWS::EC2::EIP
     # Properties:
     #   InstanceId: !Ref Logical name of an AWS::EC2::Instance resource
-  myCustomerGateway: 
-      Type: AWS::EC2::CustomerGateway
-      Properties: 
-          Type: ipsec.1
-          BgpAsn: 65534
-          IpAddress: !Ref MyEIP
-  myVPNGateway: 
-   Type: AWS::EC2::VPNGateway
-   Properties: 
-      Type: ipsec.1
-      Tags: 
-      - Key: Use
-        Value: Test
+  # myCustomerGateway: 
+  #   Type: AWS::EC2::CustomerGateway
+  #   Properties: 
+  #       Type: ipsec.1
+  #       BgpAsn: 65534
+  #       IpAddress: !Ref MyEIP
+  # myVPNGateway: 
+  #  Type: AWS::EC2::VPNGateway
+  #  Properties: 
+  #     Type: ipsec.1
+  #     Tags: 
+  #     - Key: Use
+  #       Value: Test
+  # myVPNConnection: 
+  #     Type: AWS::EC2::VPNConnection
+  #     Properties: 
+  #       Type: ipsec.1
+  #       StaticRoutesOnly: true
+  #       CustomerGatewayId: 
+  #         !Ref myCustomerGateway
+  #       VpnGatewayId: 
+  #         !Ref myVPNGateway
+  MyCertificate: 
+    Type: "AWS::CertificateManager::Certificate"
+    Properties: 
+      DomainName: awsvpn.imank.site
+      ValidationMethod: DNS
+  myClientVpnEndpoint:
+    Type: AWS::EC2::ClientVpnEndpoint
+    Properties: 
+      AuthenticationOptions:
+      - Type: "directory-service-authentication"
+        ActiveDirectory:
+          DirectoryId: d-926example
+      ClientCidrBlock: "10.0.0.0/22"
+      ConnectionLogOptions: 
+        Enabled: false
+      Description: "My Client VPN Endpoint"
+      DnsServers: 
+        - "11.11.0.1"
+      ServerCertificateArn: "arn:aws:acm:us-east-1:111122223333:certificate/12345678-1234-1234-1234-123456789012"
+      TagSpecifications:
+        - ResourceType: "client-vpn-endpoint"
+          Tags:
+          - Key: "Purpose"
+            Value: "Production"
+      TransportProtocol: "udp"
