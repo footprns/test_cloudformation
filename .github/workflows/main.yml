@@ -51,7 +51,8 @@ jobs:
           --parameters ParameterKey=EnvironmentName,ParameterValue=dev 
           ParameterKey=VpcCIDR,ParameterValue="10.0.0.0/22" 
           ParameterKey=PublicSubnet1CIDR,ParameterValue="10.0.2.0/24" 
-          ParameterKey=PrivateSubnet1CIDR,ParameterValue="10.0.0.0/23"
+          ParameterKey=PrivateSubnet1CIDR,ParameterValue="10.0.0.0/23" 
+          --no-fail-on-empty-changeset
       # - name: create_vpn
       #   run: >
       #     aws cloudformation update-stack 
@@ -70,9 +71,10 @@ jobs:
     steps:
       - name: create-iam-groups
         run: >
-          aws cloudformation create-stack 
+          aws cloudformation update-stack 
           --stack-name iam-groups
           --template-body file:///$(pwd)/iam_groups.yaml 
-          --capabilities CAPABILITY_NAMED_IAM
+          --capabilities CAPABILITY_NAMED_IAM 
+          --no-fail-on-empty-changeset
     
 
