@@ -68,10 +68,10 @@ jobs:
   create_iam:
     runs-on: imank-personal-mac
     steps:
-      - name: create_iam_groups
+      - name: create-iam-groups
         run: >
           aws cloudformation create-stack 
-          --stack-name iam_groups
+          --stack-name iam-groups
           --template-body file:///$(pwd)/iam_groups.yaml 
     
 
