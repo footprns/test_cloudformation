@@ -1,0 +1,11 @@
+Description: Create AWS IAM Groups based on RBAC
+
+Resources:
+  Type: AWS::IAM::Group
+  Properties: 
+    GroupName: Administrators
+    ManagedPolicyArns: 
+      - arn:aws:iam::aws:policy/AdministratorAccess
+    # Path: String
+    # Policies: 
+    #   - Policy
