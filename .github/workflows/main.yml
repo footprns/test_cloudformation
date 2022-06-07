@@ -45,7 +45,7 @@ jobs:
     steps:
       - name: create_vpc_simple
         run: >
-          aws cloudformation create-stack 
+          aws cloudformation update-stack 
           --stack-name vpc-dev-exchange
           --template-body file:///$(pwd)/vpc_single_zone.yaml 
           --parameters ParameterKey=EnvironmentName,ParameterValue=dev 
@@ -73,5 +73,6 @@ jobs:
           aws cloudformation create-stack 
           --stack-name iam-groups
           --template-body file:///$(pwd)/iam_groups.yaml 
+          --capabilities CAPABILITY_NAMED_IAM
     
 
