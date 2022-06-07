@@ -65,13 +65,13 @@ jobs:
   #         aws cloudformation create-stack 
   #         --stack-name vpc-dev-kms
   #         --template-body file:///$(pwd)/kms.yaml 
-    create_iam:
-      runs-on: imank-personal-mac
-      steps:
-        - name: create_iam_groups
-          run: >
-            aws cloudformation create-stack 
-            --stack-name iam_groups
-            --template-body file:///$(pwd)/iam_groups.yaml 
+  create_iam:
+    runs-on: imank-personal-mac
+    steps:
+      - name: create_iam_groups
+        run: >
+          aws cloudformation create-stack 
+          --stack-name iam_groups
+          --template-body file:///$(pwd)/iam_groups.yaml 
     
 
