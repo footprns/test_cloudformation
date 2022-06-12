@@ -18,7 +18,9 @@ Parameters:
     Default: 0.0.0.0/0
     AllowedPattern: (\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/(\d{1,2})
     ConstraintDescription: must be a valid IP CIDR range of the form x.x.x.x/x.
-
+  LatestAmiId:
+    Type:  'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
 Resources:
   ik:
     Type: AWS::EC2::KeyPair
@@ -46,6 +48,26 @@ Resources:
         FromPort: 22
         ToPort: 22
         CidrIp: !Ref 'SSHLocation'
+      Tags:
+        -
+          Key: env
+          Value: !Ref EnvironmentName
+        -
+          Key: repo
+          Value: !Ref GithubRepository
+        -
+          Key: Name
+          Value: !Join [ "-", [ !Ref EnvironmentName, !Ref ApplicationtName ]]
+        -
+          Key: app
+          Value: !Ref ApplicationtName
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref 'InstanceType'
+      SecurityGroups: [!Ref 'InstanceSecurityGroup']
+      KeyName: !Ref 'KeyName'
+      ImageId: !Ref 'LatestAmiId'
       Tags:
         -
           Key: env
