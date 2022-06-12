@@ -45,7 +45,7 @@ jobs:
     steps:
       - name: create_vpc_simple
         run: >
-          aws cloudformation update-stack 
+          aws cloudformation create-stack 
           --stack-name vpc-dev-exchange
           --template-body file:///$(pwd)/vpc_single_zone.yaml 
           --parameters ParameterKey=EnvironmentName,ParameterValue=dev 
