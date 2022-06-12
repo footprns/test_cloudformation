@@ -1,6 +1,9 @@
 Description: Import user ssh public key to access EC2 instance. Key name is the same as email address and the fullname is in in tag
 
 Parameters:
+  EnvironmentName:
+    Description: An environment name that is prefixed to resource names
+    Type: String
   SSHLocation:
     Description: The IP address range that can be used to SSH to the EC2 instances
     Type: String
@@ -37,3 +40,7 @@ Resources:
         FromPort: 22
         ToPort: 22
         CidrIp: !Ref 'SSHLocation'
+      Tags:
+        -
+          Key: env
+          Value: !Ref EnvironmentName
