@@ -1,23 +1,23 @@
 Description: Import user ssh public key to access EC2 instance. Key name is the same as email address and the fullname is in in tag
 
-Parameters:
-  KeyName:
-    Description: SSH keyname. Using the email (withouth domain)
-    Type: String
-  PublicKeyMaterial:
-    Description: Personal SSH public key
-    Type: String
-  FullName:
-    Description: Fullname according to BambooHR
-    Type: String
+# Parameters:
+#   KeyName:
+#     Description: SSH keyname. Using the email (withouth domain)
+#     Type: String
+#   PublicKeyMaterial:
+#     Description: Personal SSH public key
+#     Type: String
+#   FullName:
+#     Description: Fullname according to BambooHR
+#     Type: String
 
 Resources:
   ik:
     Type: AWS::EC2::KeyPair
     Properties: 
-      KeyName: !Ref KeyName
+      KeyName: ik
       KeyType: rsa
-      PublicKeyMaterial: !Ref PublicKeyMaterial
+      PublicKeyMaterial: ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAoeoVycrIC60QoiHk9Sy59Z6iI8HAM3i+CZoPlUy5xucTq2DaJ6AuPV9rIiC9QV4xdPmBm/UnNTjWhdRl1Cg382y/ar5rLr3cc76Rzkj+rxLWick1CP1oFvmhaaEaxZEAtnO3HHcKGTWYc6+VBg1c8CUl3p4hCuRz8XYZI/Jzu0oYfp0jymoW9zbYvxjsxUceuHcx7m4gFEu9S5iZotRMc0eUwk9sOOw+pwr5o/Ynkcgo4XvdFzOwHcbSAFxRsbSC+4zlzFJYwVukFpQbrz27B8xWic0y4YsenCiFh+qkRmwRQI2Kfx34bhFYtG4kiZgXZcsBJ8eTrSyETd16SHcknw==
       Tags:
         -
           Key: FullName
