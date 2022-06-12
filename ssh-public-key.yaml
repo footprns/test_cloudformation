@@ -71,7 +71,7 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: !Ref 'InstanceType'
-      SecurityGroups: [!Ref 'InstanceSecurityGroup']
+      # SecurityGroups: [!Ref 'InstanceSecurityGroup']
       KeyName: !Ref 'ik'
       ImageId: !Ref 'LatestAmiId'
       SubnetId: subnet-0d8792088ec3b3545
