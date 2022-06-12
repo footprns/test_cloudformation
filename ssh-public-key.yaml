@@ -74,6 +74,8 @@ Resources:
       SecurityGroups: [!Ref 'InstanceSecurityGroup']
       KeyName: !Ref 'ik'
       ImageId: !Ref 'LatestAmiId'
+      SubnetId: subnet-0d8792088ec3b3545
+      AvailabilityZone: ap-southeast-3a
       Tags:
         -
           Key: env
