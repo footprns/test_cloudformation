@@ -38,18 +38,19 @@ Resources:
         -
           Key: FullName
           Value: Iman Kurniawan
-  # EC2Instance:
-  #   Type: AWS::EC2::Instance
-  #   Properties:
-  #     InstanceType: !Ref 'InstanceType'
-  #     SecurityGroups: [!Ref 'InstanceSecurityGroup']
-  #     KeyName: !Ref 'KeyName'
-  #     ImageId: !Ref 'LatestAmiId'
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Enable SSH access via port 22
-      VpcId: vpc-07f159449c69fcd8f
+      VpcId: !ImportValue vpc-dev-exchange-VPC
+      # VpcId: 
+      #   Fn::ImportValue: 
+      #     Fn::Join:
+      #       - ","
+      #       - - "vpc"
+      #         - !Ref EnvironmentName
+      #         - !Ref ApplicationName
+      #         - "VPC"
       SecurityGroupIngress:
       - IpProtocol: tcp
         FromPort: 22
@@ -72,10 +73,7 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: !Ref 'InstanceType'
-      # SecurityGroups: [!Ref 'InstanceSecurityGroup']
-      # SecurityGroupIds: [!Ref 'InstanceSecurityGroup']
       SecurityGroupIds: [!GetAtt InstanceSecurityGroup.GroupId]
-      # SecurityGroupsIds: ["sg-0e4c29e1912f7d61e"]
       KeyName: !Ref 'ik'
       ImageId: !Ref 'LatestAmiId'
       SubnetId: subnet-0d8792088ec3b3545
