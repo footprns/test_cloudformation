@@ -72,7 +72,7 @@ Resources:
     Properties:
       InstanceType: !Ref 'InstanceType'
       # SecurityGroups: [!Ref 'InstanceSecurityGroup']
-      SecurityGroupIds: [!Fn.GetAtt 'InstanceSecurityGroup.GroupId']
+      SecurityGroupIds: [!GetAtt 'InstanceSecurityGroup.GroupId']
       KeyName: !Ref 'ik'
       ImageId: !Ref 'LatestAmiId'
       SubnetId: subnet-0d8792088ec3b3545
