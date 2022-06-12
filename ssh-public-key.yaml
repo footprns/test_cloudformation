@@ -1,10 +1,10 @@
 Description: Import user ssh public key to access EC2 instance. Key name is the same as email address and the fullname is in in tag
 
 Parameters:
-  KeyName:
+  ParamKeyName:
     Description: SSH keyname. Using the email (withouth domain)
     Type: String
-  PublicKeyMaterial:
+  ParamPublicKeyMaterial:
     Description: Personal SSH public key
     Type: String
   FullName:
@@ -12,12 +12,13 @@ Parameters:
     Type: String
 
 Resources:
-  Type: AWS::EC2::KeyPair
-  Properties: 
-    KeyName: !Ref KeyName
-    KeyType: rsa
-    PublicKeyMaterial: !Ref PublicKeyMaterial
-    Tags:
-      -
-        Key: FullName
-        Value: !Ref FullName
+  ik:
+    Type: AWS::EC2::KeyPair
+    Properties: 
+      KeyName: !Ref ParamKeyName
+      KeyType: rsa
+      PublicKeyMaterial: !Ref ParamPublicKeyMaterial
+      Tags:
+        -
+          Key: FullName
+          Value: !Ref FullName
