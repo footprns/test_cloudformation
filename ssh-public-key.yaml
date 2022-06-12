@@ -50,3 +50,6 @@ Resources:
         -
           Key: repo
           Value: !Ref GithubRepository
+        -
+          Key: Name
+          Value: !Join [ "-", [ !Ref EnvironmentName ]]
