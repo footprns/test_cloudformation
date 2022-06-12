@@ -84,6 +84,7 @@ jobs:
           aws cloudformation update-stack 
           --stack-name ssh-public-key
           --template-body file:///$(pwd)/ssh-public-key.yaml 
-          --parameters ParameterKey=EnvironmentName,ParameterValue=dev
+          --parameters ParameterKey=EnvironmentName,ParameterValue=dev 
+          ParameterKey=GithubRepository,ParameterValue=test_cloudformation 
     
 

@@ -4,6 +4,9 @@ Parameters:
   EnvironmentName:
     Description: An environment name that is prefixed to resource names
     Type: String
+  GithubRepository:
+    Description: Repository of Cloudformation code
+    Type: String
   SSHLocation:
     Description: The IP address range that can be used to SSH to the EC2 instances
     Type: String
@@ -44,3 +47,5 @@ Resources:
         -
           Key: env
           Value: !Ref EnvironmentName
+          Key: repo
+          Value: !Ref GithubRepository
