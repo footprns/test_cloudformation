@@ -81,7 +81,7 @@ jobs:
     steps:
       - name: ssh-public-key
         run: >
-          aws cloudformation update-stack 
+          aws cloudformation create-stack 
           --stack-name ssh-public-key
           --template-body file:///$(pwd)/ssh-public-key.yaml 
           --parameters ParameterKey=EnvironmentName,ParameterValue=dev 
