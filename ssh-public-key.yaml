@@ -49,7 +49,7 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Enable SSH access via port 22
-      VpcId: sg-0e4c29e1912f7d61e
+      VpcId: vpc-0f7841030b37781a9
       SecurityGroupIngress:
       - IpProtocol: tcp
         FromPort: 22
