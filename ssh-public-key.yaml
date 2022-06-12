@@ -74,7 +74,7 @@ Resources:
       InstanceType: !Ref 'InstanceType'
       # SecurityGroups: [!Ref 'InstanceSecurityGroup']
       # SecurityGroupIds: [!Ref 'InstanceSecurityGroup']
-      SecurityGroupIds: [!GetAtt InstanceSecurityGroup.GroupId]
+      # SecurityGroupIds: [!GetAtt InstanceSecurityGroup.GroupId]
       SecurityGroupsIds: ["sg-0e4c29e1912f7d61e"]
       KeyName: !Ref 'ik'
       ImageId: !Ref 'LatestAmiId'
