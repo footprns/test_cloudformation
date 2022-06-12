@@ -211,6 +211,8 @@ Outputs:
   VPC:
     Description: A reference to the created VPC
     Value: !Ref VPC
+    Export:
+      Name: !Join [ "-" [!Sub ${AWS::StackName}, "VPC"]]
 
   PublicSubnets:
     Description: A list of the public subnets
