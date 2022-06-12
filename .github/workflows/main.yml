@@ -87,6 +87,8 @@ jobs:
           --parameters ParameterKey=EnvironmentName,ParameterValue=dev 
           ParameterKey=GithubRepository,ParameterValue=test_cloudformation 
           ParameterKey=ApplicationtName,ParameterValue=exchange 
+          ParameterKey=AvailabilityZone,ParameterValue=ap-southeast-3a
+
 
           
     
