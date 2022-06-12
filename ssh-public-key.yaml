@@ -21,4 +21,4 @@ Resources:
       Tags:
         -
           Key: FullName
-          Value: !Ref FullName
+          Value: Iman Kurniawan
