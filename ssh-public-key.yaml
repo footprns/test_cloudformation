@@ -75,7 +75,7 @@ Resources:
       # SecurityGroups: [!Ref 'InstanceSecurityGroup']
       # SecurityGroupIds: [!Ref 'InstanceSecurityGroup']
       # SecurityGroupIds: [!GetAtt InstanceSecurityGroup.GroupId]
-      SecurityGroupsIds: ["sg-0e4c29e1912f7d61e"]
+      # SecurityGroupsIds: ["sg-0e4c29e1912f7d61e"]
       KeyName: !Ref 'ik'
       ImageId: !Ref 'LatestAmiId'
       SubnetId: subnet-0d8792088ec3b3545
