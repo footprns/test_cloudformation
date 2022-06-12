@@ -47,5 +47,6 @@ Resources:
         -
           Key: env
           Value: !Ref EnvironmentName
+        -
           Key: repo
           Value: !Ref GithubRepository
