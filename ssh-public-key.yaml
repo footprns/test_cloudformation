@@ -4,6 +4,9 @@ Parameters:
   EnvironmentName:
     Description: An environment name that is prefixed to resource names
     Type: String
+  ApplicationtName:
+    Description: An application name as identifier
+    Type: String
   GithubRepository:
     Description: Repository of Cloudformation code
     Type: String
@@ -52,4 +55,7 @@ Resources:
           Value: !Ref GithubRepository
         -
           Key: Name
-          Value: !Join [ "-", [ !Ref EnvironmentName ]]
+          Value: !Join [ "-", [ !Ref EnvironmentName, !Ref ApplicationtName ]]
+        -
+          Key: app
+          Value: !Ref ApplicationtName

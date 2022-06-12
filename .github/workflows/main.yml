@@ -86,5 +86,8 @@ jobs:
           --template-body file:///$(pwd)/ssh-public-key.yaml 
           --parameters ParameterKey=EnvironmentName,ParameterValue=dev 
           ParameterKey=GithubRepository,ParameterValue=test_cloudformation 
+          ParameterKey=ApplicationtName,ParameterValue=exchange 
+
+          
     
 
